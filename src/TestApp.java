@@ -3,23 +3,18 @@ package src;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.layout.HBox;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import src.RestaurauntPane;
-import javafx.scene.control.ScrollPane;
-
-import java.util.Random;
 
 public class TestApp extends Application {
     RestaurantData r1 = new RestaurantData("Restauraunt 1", "We are restauraunt 1", "123 Main Street", 8, 5);
     RestaurantData r2 = new RestaurantData("Restauraunt 2", "We are restauraunt 2", "125 Main Street", 10,7);
+    
     @Override
     public void start(Stage primaryStage) {
         RestaurauntPane pane1 = new RestaurauntPane(r1);
         RestaurauntPane pane2 = new RestaurauntPane(r2);
-
-
 
         VBox content = new VBox(20);
         content.setPadding(new Insets(20));

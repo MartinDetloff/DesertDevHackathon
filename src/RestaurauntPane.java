@@ -1,11 +1,8 @@
 package src;
 
-import javafx.scene.layout.VBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.Button;
 import javafx.geometry.Insets;
-
-import java.nio.charset.StandardCharsets;
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
 
 // Extend VBox (or Pane, HBox, StackPane — whatever layout fits)
 public class RestaurauntPane extends VBox {
@@ -15,7 +12,8 @@ public class RestaurauntPane extends VBox {
     private Label priceLabel;
     private Label addressLabel;
 
-    public RestaurauntPane(RestaurantData restaurant) {
+    public RestaurauntPane(RestaurantData restaurant) 
+    {
         // --- Configure THIS pane (we ARE the VBox) ---
         this.setSpacing(10);                          // gap between children
         this.setPadding(new Insets(15));              // inner padding
