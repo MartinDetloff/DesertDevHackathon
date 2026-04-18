@@ -5,13 +5,14 @@ import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class MainApp extends Application
-{   
+public class UserPage extends Application 
+{
     public static void main(String[] args) 
     {
         launch(args);
-        System.out.println("Finished");       
+        System.out.println("Finished UserPage");       
     }
+
 
     @Override
     public void start(Stage primaryStage) 
