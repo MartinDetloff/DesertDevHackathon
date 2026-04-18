@@ -4,25 +4,41 @@ public class RestaurantData
 {
     private String m_szName;
     private String m_szDesc;
+    private String m_szAddress;
     private int m_iMaxPrice;
     private int m_iMinPrice;
+    private int m_iID;
 
+    private static int m_iNextID = 0;
     public static void main(String[] args)
     {
-        RestaurantData rd = new RestaurantData("Sample Name", "Sample Description", 1000, 10);
+        RestaurantData rd = new RestaurantData("Sample Name", "Sample Description", "Sample Address", 1000, 10);
 
         System.out.println("Name: " + rd.GetName());
         System.out.println("Description: " + rd.GetDescription());
+        System.out.println("Address: " + rd.GetAddress());
         System.out.println("Max Price: " + rd.GetMaxPrice());
         System.out.println("Min Price: " + rd.GetMinPrice());
     }
 
-    public RestaurantData(String szName, String szDesc, int iMaxPrice, int iMinPrice)
+    public RestaurantData(String szName, String szDesc, String szAddress, int iMaxPrice, int iMinPrice)
     {
         m_szName = szName;
         m_szDesc = szDesc;
         m_iMaxPrice = iMaxPrice;
         m_iMinPrice = iMinPrice;
+        m_szAddress = szAddress;
+        m_iID = m_iNextID++;
+    }
+
+    public RestaurantData(int iID, String szName, String szDesc, String szAddress, int iMaxPrice, int iMinPrice)
+    {
+        m_szName = szName;
+        m_szDesc = szDesc;
+        m_iMaxPrice = iMaxPrice;
+        m_iMinPrice = iMinPrice;
+        m_szAddress = szAddress;
+        m_iID = iID;
     }
 
     public String GetName()
@@ -35,6 +51,11 @@ public class RestaurantData
         return m_szDesc;
     }
     
+    public String GetAddress()
+    {
+        return m_szAddress;
+    }
+    
     public int GetMaxPrice()
     {
         return m_iMaxPrice;
@@ -43,5 +64,10 @@ public class RestaurantData
     public int GetMinPrice()
     {
         return m_iMinPrice;
+    }
+
+    public int GetID()
+    {
+        return m_iID;
     }
 }
