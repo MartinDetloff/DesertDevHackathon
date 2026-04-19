@@ -108,7 +108,7 @@ public class OwnerPage extends Application
 
         int roundedMin       = now.getMinute() < 30 ? 30 : 0;
         int roundedHour      = now.getMinute() < 30 ? now.getHour() : now.getHour() + 1;
-        String defaultStart  = LocalTime.of(roundedHour, roundedMin).format(fmt);
+        String defaultStart  = LocalTime.of(roundedHour > 23 ? 1 : roundedHour, roundedMin).format(fmt);
         String defaultEnd    = LocalTime.of(roundedHour + 1 > 23 ? 1 : roundedHour + 1, roundedMin).format(fmt);
     
         startTime.setValue(defaultStart);
