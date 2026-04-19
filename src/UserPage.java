@@ -270,6 +270,17 @@ public class UserPage extends Application
 
     private void SetupOwnerPage()
     {
+        m_OwnerRoot.setStyle("-fx-background-color: #FEFAE0;");
+        String comboStyle =
+        "-fx-background-color: #FEFAE0;" +
+        "-fx-border-color: #606c38;" +
+        "-fx-border-radius: 6;" +
+        "-fx-background-radius: 6;" +
+        "-fx-font-size: 13px;" +
+        "-fx-padding: 4 8 4 8;";
+
+        String szTextFieldStyle = "-fx-background-color: #FEFAE0; -fx-border-color: #606c38;";
+
         ColumnConstraints labelCol = new ColumnConstraints(130);
         labelCol.setHalignment(HPos.LEFT);
 
@@ -284,21 +295,25 @@ public class UserPage extends Application
 
         m_nameField.setPromptText("e.g. Dions");
         m_OwnerRoot.add(m_nameField, 1, iRow++);
+        m_nameField.setStyle(szTextFieldStyle);
 
         AddLabel("Description", iRow);
         m_descField.setPromptText("Describe tonight's surplus food...");
         m_descField.setPrefRowCount(3);
         m_descField.setWrapText(true);
+        m_descField.setStyle(szTextFieldStyle + "-fx-control-inner-background: #FEFAE0;" );
         m_OwnerRoot.add(m_descField, 1, iRow++);
 
         AddLabel("Address *", iRow);
         m_addressField.setPromptText("e.g. 123 Main Street");
+        m_addressField.setStyle(szTextFieldStyle);
         m_OwnerRoot.add(m_addressField, 1, iRow++);
 
         AddLabel("Cuisine *", iRow);
         ComboBox<String> cuisineBox = new ComboBox<>();
         cuisineBox.getItems().addAll("Italian", "Mexican", "Chinese", "American");
         cuisineBox.setValue("Italian");
+        cuisineBox.setStyle(comboStyle);
         m_OwnerRoot.add(cuisineBox, 1, iRow++);
 
         AddSeperator(iRow++);
@@ -311,10 +326,12 @@ public class UserPage extends Application
 
         m_minPriceField.setPromptText("Min $");
         m_minPriceField.setPrefWidth(90);
+        m_minPriceField.setStyle(szTextFieldStyle);
 
         m_maxPriceField = new TextField();
         m_maxPriceField.setPromptText("Max $");
         m_maxPriceField.setPrefWidth(90);
+        m_maxPriceField.setStyle(szTextFieldStyle);
 
         for (TextField tf : new TextField[]{m_minPriceField, m_maxPriceField}) {
         tf.textProperty().addListener((obs, old, val) -> {
@@ -351,13 +368,6 @@ public class UserPage extends Application
     
         startTime.setValue(defaultStart);
         endTime.setValue(defaultEnd);
-        String comboStyle =
-        "-fx-background-color: white;" +
-        "-fx-border-color: #e0e0e0;" +
-        "-fx-border-radius: 6;" +
-        "-fx-background-radius: 6;" +
-        "-fx-font-size: 13px;" +
-        "-fx-padding: 4 8 4 8;";
 
         startTime.setStyle(comboStyle);
         endTime.setStyle(comboStyle);
@@ -379,7 +389,7 @@ public class UserPage extends Application
 
         Button clearBtn = new Button("Clear");
         Button saveBtn  = new Button("Save Listing");
-        saveBtn.setStyle("-fx-background-color: #2e7d32; -fx-text-fill: white; -fx-font-weight: bold;");
+        saveBtn.setStyle("-fx-background-color: #606c38; -fx-text-fill: white; -fx-font-weight: bold;");
         
         clearBtn.setOnAction( e -> {
             clearFields();
@@ -454,7 +464,7 @@ public class UserPage extends Application
         Label label = new Label(szText);
         label.setStyle(
             "-fx-font-size: 13px;" +
-            "-fx-text-fill: #4d945b;" +
+            "-fx-text-fill: #000000;" +
             "-fx-font-weight: bold;" +
             "-fx-padding: 0 12 0 0;"
         );
