@@ -2,11 +2,9 @@ package src;
 
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import javafx.application.Application;
 import javafx.geometry.HPos;
 import javafx.geometry.Pos;
 import javafx.geometry.VPos;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -19,56 +17,65 @@ import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
-import javafx.stage.Stage;
 
-public class OwnerPage extends Application
+public class OwnerPage
 {
     Utils m_utils = new Utils();
-    GridPane m_root = new GridPane();
+    GridPane m_OwnerRoot = new GridPane();
 
     TextField m_nameField = new TextField();
     TextArea m_descField = new TextArea();
     TextField m_addressField = new TextField();
     TextField m_minPriceField = new TextField();
     TextField m_maxPriceField = new TextField();
-    public static void main(String[] args) 
-    {
-        launch(args);
-    }
     
-    @Override
-    public void start(Stage primaryStage) 
+    public OwnerPage() 
     {
+      m_OwnerRoot.setStyle("-fx-background-color: #FEFAE0;");
+        String comboStyle =
+        "-fx-background-color: #FEFAE0;" +
+        "-fx-border-color: #606c38;" +
+        "-fx-border-radius: 6;" +
+        "-fx-background-radius: 6;" +
+        "-fx-font-size: 13px;" +
+        "-fx-padding: 4 8 4 8;";
+
+        String szTextFieldStyle = "-fx-background-color: #FEFAE0; -fx-border-color: #606c38;";
+
         ColumnConstraints labelCol = new ColumnConstraints(130);
         labelCol.setHalignment(HPos.LEFT);
 
         ColumnConstraints inputCol = new ColumnConstraints();
         inputCol.setHgrow(Priority.ALWAYS);
         
-        m_root.getColumnConstraints().addAll(labelCol, inputCol);
+        m_OwnerRoot.getColumnConstraints().addAll(labelCol, inputCol);
         
         int iRow = 0;
         AddHeader("RESTAURANT INFO", iRow++);
         AddLabel("Name *", iRow);
 
         m_nameField.setPromptText("e.g. Dions");
-        m_root.add(m_nameField, 1, iRow++);
+        m_OwnerRoot.add(m_nameField, 1, iRow++);
+        m_nameField.setStyle(szTextFieldStyle);
 
         AddLabel("Description", iRow);
         m_descField.setPromptText("Describe tonight's surplus food...");
         m_descField.setPrefRowCount(3);
         m_descField.setWrapText(true);
-        m_root.add(m_descField, 1, iRow++);
+        m_descField.setStyle(szTextFieldStyle + "-fx-control-inner-background: #FEFAE0;" );
+        m_OwnerRoot.add(m_descField, 1, iRow++);
 
         AddLabel("Address *", iRow);
         m_addressField.setPromptText("e.g. 123 Main Street");
-        m_root.add(m_addressField, 1, iRow++);
+        m_addressField.setStyle(szTextFieldStyle);
+        m_OwnerRoot.add(m_addressField, 1, iRow++);
 
         AddLabel("Cuisine *", iRow);
         ComboBox<String> cuisineBox = new ComboBox<>();
         cuisineBox.getItems().addAll("Italian", "Mexican", "Chinese", "American");
         cuisineBox.setValue("Italian");
-        m_root.add(cuisineBox, 1, iRow++);
+        cuisineBox.setStyle(comboStyle);
+        m_OwnerRoot.add(cuisineBox, 1, iRow++);
 
         AddSeperator(iRow++);
 
@@ -80,10 +87,12 @@ public class OwnerPage extends Application
 
         m_minPriceField.setPromptText("Min $");
         m_minPriceField.setPrefWidth(90);
+        m_minPriceField.setStyle(szTextFieldStyle);
 
         m_maxPriceField = new TextField();
         m_maxPriceField.setPromptText("Max $");
         m_maxPriceField.setPrefWidth(90);
+        m_maxPriceField.setStyle(szTextFieldStyle);
 
         for (TextField tf : new TextField[]{m_minPriceField, m_maxPriceField}) {
         tf.textProperty().addListener((obs, old, val) -> {
@@ -92,7 +101,7 @@ public class OwnerPage extends Application
         }
 
         priceBox.getChildren().addAll(m_minPriceField, new Label("–"), m_maxPriceField);
-        m_root.add(priceBox, 1, iRow++);
+        m_OwnerRoot.add(priceBox, 1, iRow++);
 
         AddSeperator(iRow++);
         AddHeader("PICKUP TIME", iRow++);
@@ -120,13 +129,6 @@ public class OwnerPage extends Application
     
         startTime.setValue(defaultStart);
         endTime.setValue(defaultEnd);
-        String comboStyle =
-        "-fx-background-color: white;" +
-        "-fx-border-color: #e0e0e0;" +
-        "-fx-border-radius: 6;" +
-        "-fx-background-radius: 6;" +
-        "-fx-font-size: 13px;" +
-        "-fx-padding: 4 8 4 8;";
 
         startTime.setStyle(comboStyle);
         endTime.setStyle(comboStyle);
@@ -140,7 +142,7 @@ public class OwnerPage extends Application
         HBox timeBox = new HBox(8);
         timeBox.setAlignment(Pos.CENTER_LEFT);
         timeBox.getChildren().addAll(startTime, toLabel, endTime);
-        m_root.add(timeBox, 1, iRow++);
+        m_OwnerRoot.add(timeBox, 1, iRow++);
 
         HBox buttonBox = new HBox(10);
         buttonBox.setAlignment(Pos.CENTER_RIGHT);
@@ -148,7 +150,7 @@ public class OwnerPage extends Application
 
         Button clearBtn = new Button("Clear");
         Button saveBtn  = new Button("Save Listing");
-        saveBtn.setStyle("-fx-background-color: #2e7d32; -fx-text-fill: white; -fx-font-weight: bold;");
+        saveBtn.setStyle("-fx-background-color: #606c38; -fx-text-fill: white; -fx-font-weight: bold;");
         
         clearBtn.setOnAction( e -> {
             clearFields();
@@ -191,10 +193,7 @@ public class OwnerPage extends Application
         });
 
         buttonBox.getChildren().addAll(clearBtn, saveBtn);
-        m_root.add(buttonBox, 0, iRow);
-
-        primaryStage.setScene(new Scene(m_root, 600, 350));
-        primaryStage.show();
+        m_OwnerRoot.add(buttonBox, 0, iRow);
     }
 
     private void AddHeader(String szName, int iRow)
@@ -210,7 +209,7 @@ public class OwnerPage extends Application
         );
         header.setMaxWidth(Double.MAX_VALUE);
         GridPane.setColumnSpan(header, 2);
-        m_root.add(header, 0, iRow);
+        m_OwnerRoot.add(header, 0, iRow);
     }
 
     private void AddSeperator(int iRow)
@@ -218,7 +217,7 @@ public class OwnerPage extends Application
         Separator sep = new Separator();
         sep.setStyle("-fx-padding: 6 0 6 0;");
         GridPane.setColumnSpan(sep, 2);
-        m_root.add(sep, 0, iRow);
+        m_OwnerRoot.add(sep, 0, iRow);
     }
 
     private void AddLabel(String szText, int iRow)
@@ -226,14 +225,14 @@ public class OwnerPage extends Application
         Label label = new Label(szText);
         label.setStyle(
             "-fx-font-size: 13px;" +
-            "-fx-text-fill: #4d945b;" +
+            "-fx-text-fill: #000000;" +
             "-fx-font-weight: bold;" +
             "-fx-padding: 0 12 0 0;"
         );
         label.setAlignment(Pos.CENTER_RIGHT);
         label.setMaxWidth(Double.MAX_VALUE);
         GridPane.setValignment(label, VPos.CENTER);
-        m_root.add(label, 0, iRow);
+        m_OwnerRoot.add(label, 0, iRow);
     }
 
     private boolean ValidateInputs()
