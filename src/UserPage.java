@@ -26,6 +26,7 @@ public class UserPage extends Application
 
     private ComboBox<String> m_priceFilters = new ComboBox<>();
     private ComboBox<String> m_timeFilers = new ComboBox<>();
+    private ComboBox<String> m_cuisineFilers = new ComboBox<>();
 
     private ArrayList<RestaurantData> m_aRestaurantData = m_utils.GetRestaurants();
 
@@ -52,7 +53,7 @@ public class UserPage extends Application
 
         root.getChildren().addAll(boxFilters, scrollPane);
     
-        Scene scene = new Scene(root, 600, 500);
+        Scene scene = new Scene(root, 650, 500);
         primaryStage.setScene(scene);
         primaryStage.setTitle("User Waste Food Pickup");
         primaryStage.show();
@@ -66,8 +67,12 @@ public class UserPage extends Application
         m_timeFilers.getItems().addAll("Any time", "Soonest", "Morning", "Afternoon", "Evening");
         m_timeFilers.setValue("Any time");
 
+        m_cuisineFilers.getItems().addAll("Any cuisine", "Italian", "Mexican", "American", "Chinese");
+        m_cuisineFilers.setValue("Any cuisine");
+    
         m_priceFilters.setOnAction(e -> ApplyFilters());
         m_timeFilers.setOnAction(e -> ApplyFilters());
+        m_cuisineFilers.setOnAction(e -> ApplyFilters());
 
         String comboStyle =
             "-fx-background-color: white;" +
@@ -78,7 +83,7 @@ public class UserPage extends Application
             "-fx-padding: 4 8 4 8;";
         m_priceFilters.setStyle(comboStyle);
         m_timeFilers.setStyle(comboStyle);
-
+        m_cuisineFilers.setStyle(comboStyle);
         String labelStyle =
             "-fx-font-size: 12px;" +
             "-fx-text-fill: #555555;" +
@@ -86,8 +91,10 @@ public class UserPage extends Application
 
         Label priceLabel = new Label("Price");
         Label timeLabel  = new Label("Time");
+        Label cuisineLabel = new Label("Cuisine");
         priceLabel.setStyle(labelStyle);
         timeLabel.setStyle(labelStyle);
+        cuisineLabel.setStyle(labelStyle);
 
         HBox priceBox = new HBox(6);
         priceBox.setAlignment(Pos.CENTER_LEFT);
@@ -97,8 +104,15 @@ public class UserPage extends Application
         timeBox.setAlignment(Pos.CENTER_LEFT);
         timeBox.getChildren().addAll(timeLabel, m_timeFilers);
 
+        HBox cuisineBox = new HBox(6);
+        cuisineBox.setAlignment(Pos.CENTER_LEFT);
+        cuisineBox.getChildren().addAll(cuisineLabel, m_cuisineFilers);
+
         Separator divider = new Separator(Orientation.VERTICAL);
         divider.setStyle("-fx-padding: 0 4 0 4;");
+
+        Separator divider2 = new Separator(Orientation.VERTICAL);
+        divider2.setStyle("-fx-padding: 0 4 0 4;");
 
         boxFilters.setSpacing(16);
         boxFilters.setAlignment(Pos.CENTER_LEFT);
@@ -108,7 +122,7 @@ public class UserPage extends Application
             "-fx-border-color: transparent transparent #e0e0e0 transparent;" +
             "-fx-border-width: 0 0 1 0;"
         );
-        boxFilters.getChildren().addAll(priceBox, divider, timeBox);
+        boxFilters.getChildren().addAll(priceBox, divider, timeBox, divider2, cuisineBox);
     }
 
     private void ApplyFilters()
@@ -117,8 +131,9 @@ public class UserPage extends Application
     
         String szPriceFilter = m_priceFilters.getValue();
         String szTimeFilter = m_timeFilers.getValue();
+        String szCuisineFilter = m_cuisineFilers.getValue();
 
-        if ( szPriceFilter.equals("Any price") && szTimeFilter.equals("Any time") )
+        if ( szPriceFilter.equals("Any price") && szTimeFilter.equals("Any time") && szCuisineFilter.equals("Any cuisine") )
         {
             PopulateRestaurantsBox(); 
             return;
@@ -127,7 +142,7 @@ public class UserPage extends Application
         ArrayList<RestaurantData> m_aRestaurantDataTemp = new ArrayList<>();
         for ( RestaurantData restaurant : m_aRestaurantData )
         {
-            if ( IsWithinPriceFilter(restaurant, szPriceFilter) && IsWithinTimeFilter(restaurant, szTimeFilter) )
+            if ( IsWithinPriceFilter(restaurant, szPriceFilter) && IsWithinTimeFilter(restaurant, szTimeFilter) && IsWithinCuisineFilter(restaurant, szCuisineFilter) )
                 m_aRestaurantDataTemp.add(restaurant);
         }
 
@@ -157,8 +172,8 @@ public class UserPage extends Application
             return true;
 
         return szPriceFilter.equals("Under $3") && restaurant.GetMinPrice() < 3 ||
-               szPriceFilter.equals("$3 – $5") && restaurant.GetMinPrice() > 3 && restaurant.GetMinPrice() <= 5 || 
-               szPriceFilter.equals("$5+") && restaurant.GetMaxPrice() > 5;
+               szPriceFilter.equals("$3 – $5") && restaurant.GetMinPrice() >= 3 && restaurant.GetMinPrice() <= 5 || 
+               szPriceFilter.equals("$5+") && restaurant.GetMaxPrice() >= 5;
     }
 
 
@@ -198,6 +213,14 @@ public class UserPage extends Application
             default:
                 return false;
         }
+    }
+
+    private boolean IsWithinCuisineFilter(RestaurantData restaurant, String szCuisineFilter)
+    {
+        if ( szCuisineFilter.equals("Any cuisine") )
+            return true;
+
+        return restaurant.GetCuisine().equals(szCuisineFilter);
     }
 
     private String GetTimeString(String szTime)
