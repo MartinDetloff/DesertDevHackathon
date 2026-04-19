@@ -1,7 +1,6 @@
 package src;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -54,7 +53,7 @@ public class UserPage extends Application
 
     private void SetupFilters()
     {
-        m_priceFilters.getItems().addAll("None", "Ascending", "Decending");
+        m_priceFilters.getItems().addAll("None", "Under $3", "$3-$5", "$5+");
         m_priceFilters.setValue("None");
         m_priceFilters.setOnAction( e -> { ApplyPriceFilters(); } );
     
@@ -63,20 +62,26 @@ public class UserPage extends Application
 
     private void ApplyPriceFilters()
     {
+        m_vbRestaurantsBox.getChildren().clear();
+    
         String szPriceFilter = m_priceFilters.getValue();
 
         if ( szPriceFilter.equals("None") )
+        {
+            PopulateRestaurantsBox();
             return;
+        }
     
-        m_vbRestaurantsBox.getChildren().clear();
-        
-        boolean bShouldSortAscending = szPriceFilter.equals("Ascending"); 
-        if ( bShouldSortAscending )
-            m_aRestaurantData.sort(Comparator.comparing(RestaurantData::GetMinPrice));
-        else
-            m_aRestaurantData.sort(Comparator.comparing(RestaurantData::GetMinPrice).reversed());
-
-        PopulateRestaurantsBox();
+        for ( RestaurantData restaurant : m_aRestaurantData )
+        {
+            if ( szPriceFilter.equals("Under $3") && restaurant.GetMinPrice() < 3 ||
+                 szPriceFilter.equals("$3-$5") && restaurant.GetMinPrice() > 3 && restaurant.GetMinPrice() <= 5 || 
+                 szPriceFilter.equals("$5+") && restaurant.GetMinPrice() > 5 )
+            {
+                RestaurauntPane restaurantPane = new RestaurauntPane(restaurant);
+                m_vbRestaurantsBox.getChildren().add(restaurantPane);
+            }
+        }
     }
 
     private void PopulateRestaurantsBox()
