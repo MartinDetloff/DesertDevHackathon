@@ -20,7 +20,7 @@ public class Utils
         int iTestMinPrice = 100;
         for (int i = 0; i <= 5; i ++)
         {
-            RestaurantData restaurantdata = new RestaurantData(szTestName + i, szTestDesc + i, szTestAddress + i, iTestMaxPrice, iTestMinPrice);
+            RestaurantData restaurantdata = new RestaurantData(szTestName + i, szTestDesc + i, szTestAddress + i, iTestMaxPrice, iTestMinPrice, "9:00-9:30");
             utils.AddRestaurant(restaurantdata);
         }
 
@@ -47,8 +47,9 @@ public class Utils
                 String szAddr = dataArr[3];
                 int iMaxPrice = Integer.parseInt(dataArr[4]);
                 int iMinPrice = Integer.parseInt(dataArr[5]);
+                String szPickupTime = dataArr[6];
 
-                RestaurantData rd = new RestaurantData(iID, szName, szDesc, szAddr, iMaxPrice, iMinPrice);
+                RestaurantData rd = new RestaurantData(iID, szName, szDesc, szAddr, iMaxPrice, iMinPrice, szPickupTime);
                 
                 rdList.add(rd);
             }
@@ -71,7 +72,8 @@ public class Utils
             fileWriter.write(restaurantData.GetAddress() + ",");
             fileWriter.write(restaurantData.GetDescription() + ",");
             fileWriter.write(restaurantData.GetMaxPrice() + ",");
-            fileWriter.write(restaurantData.GetMinPrice() + "\n");
+            fileWriter.write(restaurantData.GetMinPrice() + ",");
+            fileWriter.write(restaurantData.GetPickupTime() + "\n");
             fileWriter.close();
         } 
         catch (IOException e) 

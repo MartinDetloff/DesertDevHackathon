@@ -1,6 +1,1 @@
-0,Sample Name 0,Sample Address 0,Sample Description 0,1000,10
-1,Sample Name 1,Sample Address 1,Sample Description 1,1000,1
-2,Sample Name 2,Sample Address 2,Sample Description 2,1000,2
-3,Sample Name 3,Sample Address 3,Sample Description 3,1000,111
-4,Sample Name 4,Sample Address 4,Sample Description 4,1000,222
-5,Sample Name 5,Sample Address 5,Sample Description 5,1000,444
+0,Dions,We have some leftover pizzas,8010 Academy Rd NE,10,4,8:30 PM - 9:30 PM

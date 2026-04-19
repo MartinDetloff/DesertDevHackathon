@@ -8,9 +8,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class TestApp extends Application {
-    RestaurantData r1 = new RestaurantData("Restauraunt 1", "We are restauraunt 1", "123 Main Street", 8, 5);
-    RestaurantData r2 = new RestaurantData("Restauraunt 2", "We are restauraunt 2", "125 Main Street", 10,7);
-    
+    RestaurantData r1 = new RestaurantData("Restauraunt 1", "We are restauraunt 1", "123 Main Street", 8, 5, "9:00-9:30");
+    RestaurantData r2 = new RestaurantData("Restauraunt 2", "We are restauraunt 2", "125 Main Street", 10, 7, "9:00-9:30");
+
     @Override
     public void start(Stage primaryStage) {
         RestaurauntPane pane1 = new RestaurauntPane(r1);

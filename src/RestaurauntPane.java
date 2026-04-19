@@ -19,21 +19,24 @@ public class RestaurauntPane extends VBox {
         this.setPadding(new Insets(15));              // inner padding
         this.setStyle("-fx-background-color: lightblue; -fx-border-color: navy;");
 
-        // --- Build child nodes ---
-        String priceString1 = "Price Range: $%d - $%d";
-        String priceString2 = String.format(priceString1, restaurant.GetMinPrice(), restaurant.GetMaxPrice());
         nameLabel = new Label(restaurant.GetName());
         nameLabel.setStyle("-fx-font-size: 35px; -fx-font-weight: bold;");
-        descriptionLabel = new Label(restaurant.GetDescription());
-        descriptionLabel.setStyle("-fx-font-size: 18px");
-        priceLabel = new Label(priceString2);
-        priceLabel.setStyle("-fx-font-size: 18px");
-        //addressLabel = new Label(address);
-        //addressLabel.setStyle("-fx-font-size: 18px");
 
+        addressLabel = new Label("Address: " + restaurant.GetAddress());
+        addressLabel.setStyle("-fx-font-size: 18px");
+
+        descriptionLabel = new Label("Description: " + restaurant.GetDescription());
+        descriptionLabel.setStyle("-fx-font-size: 18px");
+
+        String priceString = String.format("$%d - $%d", restaurant.GetMinPrice(), restaurant.GetMaxPrice());  
+        priceLabel = new Label("Price Range: " + priceString);
+        priceLabel.setStyle("-fx-font-size: 18px");
+    
+        Label pickupTimeLabel = new Label("Pickup Time: " + restaurant.GetPickupTime());
+        pickupTimeLabel.setStyle("-fx-font-size: 18px");
 
         // --- Add children to THIS pane's child list ---
-        this.getChildren().addAll(nameLabel, descriptionLabel, priceLabel);
+        this.getChildren().addAll(nameLabel, addressLabel, descriptionLabel, priceLabel, pickupTimeLabel);
     }
 
 }
