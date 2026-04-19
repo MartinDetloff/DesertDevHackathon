@@ -10,6 +10,7 @@ public class MainApp extends Application
     private UserPage m_UserPage = new UserPage();
     private StartPage m_StartPage = new StartPage();
     private PricePage m_PricePage = new PricePage();
+    private CusisinePage m_CusisinePage = new CusisinePage();
 
     public static void main(String[] args) 
     {
@@ -23,22 +24,24 @@ public class MainApp extends Application
             primaryStage.setScene(new Scene(m_PricePage.m_PricePageRoot, 700, 450));
             primaryStage.show();
         });
+
         m_PricePage.med.setOnAction( e -> {
             m_StartPage.m_PriceOption = m_PricePage.med.getText();
-            SetCuisinePage();
+            SetCuisinePage(primaryStage);
         } );
         m_PricePage.low.setOnAction( e -> {
             m_StartPage.m_PriceOption = m_PricePage.low.getText();
-            SetCuisinePage();
+            SetCuisinePage(primaryStage);
         } );
         m_PricePage.high.setOnAction( e -> {
             m_StartPage.m_PriceOption = m_PricePage.high.getText();
-            SetCuisinePage();
+            SetCuisinePage(primaryStage);
         } );
         m_PricePage.any.setOnAction( e -> {
             m_StartPage.m_PriceOption = m_PricePage.any.getText();
-            SetCuisinePage();
+            SetCuisinePage(primaryStage);
         } );
+
 
          m_StartPage.ownerButton.setOnAction( e -> {
             primaryStage.setScene(new Scene(m_OwnerPage.m_OwnerRoot, 600, 400));
@@ -49,9 +52,10 @@ public class MainApp extends Application
         primaryStage.show();
     }
 
-    private void SetCuisinePage()
+    private void SetCuisinePage(Stage primaryStage)
     {
-
+        primaryStage.setScene(new Scene(m_CusisinePage.m_CuisinePageRoot, 610, 450));
+        primaryStage.show();
     }
 
 }
