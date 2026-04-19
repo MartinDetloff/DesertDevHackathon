@@ -67,6 +67,27 @@ public class MainApp extends Application
             SetTimePage(primaryStage);
         });
 
+        m_TimePage.any.setOnAction( e -> {
+            m_StartPage.m_PriceOption = m_TimePage.any.getText();
+            SetUserPage(primaryStage);
+        });
+        m_TimePage.afternoon.setOnAction( e -> {
+            m_StartPage.m_PriceOption = m_TimePage.afternoon.getText();
+            SetUserPage(primaryStage);
+        });
+        m_TimePage.morning.setOnAction( e -> {
+            m_StartPage.m_PriceOption = m_TimePage.morning.getText();
+            SetUserPage(primaryStage);
+        });
+        m_TimePage.evening.setOnAction( e -> {
+            m_StartPage.m_PriceOption = m_TimePage.evening.getText();
+            SetUserPage(primaryStage);
+        });
+        m_TimePage.soonest.setOnAction( e -> {
+            m_StartPage.m_PriceOption = m_TimePage.soonest.getText();
+            SetUserPage(primaryStage);
+        });
+
          m_StartPage.ownerButton.setOnAction( e -> {
             primaryStage.setScene(new Scene(m_OwnerPage.m_OwnerRoot, 600, 400));
             primaryStage.show();
@@ -85,6 +106,12 @@ public class MainApp extends Application
     private void SetTimePage(Stage primaryStage)
     {
         primaryStage.setScene(new Scene(m_TimePage.m_TimePageRoot, 610, 450));
+        primaryStage.show();
+    }
+
+    private void SetUserPage(Stage primaryStage)
+    {
+        primaryStage.setScene(new Scene(m_UserPage.m_UserRoot, 650, 450));
         primaryStage.show();
     }
 }
