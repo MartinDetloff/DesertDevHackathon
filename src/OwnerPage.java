@@ -64,6 +64,12 @@ public class OwnerPage extends Application
         m_addressField.setPromptText("e.g. 123 Main Street");
         m_root.add(m_addressField, 1, iRow++);
 
+        AddLabel("Cuisine *", iRow);
+        ComboBox<String> cuisineBox = new ComboBox<>();
+        cuisineBox.getItems().addAll("Italian", "Mexican", "Chinese", "American");
+        cuisineBox.setValue("Italian");
+        m_root.add(cuisineBox, 1, iRow++);
+
         AddSeperator(iRow++);
 
         AddHeader("PRICING", iRow++);
@@ -167,7 +173,8 @@ public class OwnerPage extends Application
                     m_addressField.getText(),
                     Integer.parseInt(m_maxPriceField.getText()),
                     Integer.parseInt(m_minPriceField.getText()),
-                    startTime.getValue() + " - " + endTime.getValue()
+                    startTime.getValue() + " - " + endTime.getValue(),
+                    cuisineBox.getValue()
                 );
 
                 m_utils.AddRestaurant(restaurantData);
@@ -182,11 +189,11 @@ public class OwnerPage extends Application
                 clearFields();
             }
         });
-    
+
         buttonBox.getChildren().addAll(clearBtn, saveBtn);
         m_root.add(buttonBox, 0, iRow);
 
-        primaryStage.setScene(new Scene(m_root, 600, 300));
+        primaryStage.setScene(new Scene(m_root, 600, 350));
         primaryStage.show();
     }
 

@@ -7,7 +7,7 @@ import javafx.scene.control.Separator;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-// Extend VBox (or Pane, HBox, StackPane — whatever layout fits)
+
 public class RestaurauntPane extends VBox {
 
     private Label nameLabel;
@@ -50,7 +50,6 @@ public class RestaurauntPane extends VBox {
         );
         descriptionLabel.setWrapText(true);
 
-        // Price and pickup on the same row
         String priceString = String.format("$%d – $%d", restaurant.GetMinPrice(), restaurant.GetMaxPrice());
         priceLabel = new Label(priceString);
         priceLabel.setStyle(
@@ -70,10 +69,50 @@ public class RestaurauntPane extends VBox {
             "-fx-padding: 3 8 3 8;" +
             "-fx-background-radius: 12;"
         );
+        String cuisine = restaurant.GetCuisine();
 
+        String textColor;
+        String bgColor;
+        String icon;
+
+        switch (cuisine) {
+            case "Italian":
+                textColor = "#b71c1c";
+                bgColor = "#ffebee";
+                icon = "🍝";
+                break;
+            case "Mexican":
+                textColor = "#1b5e20";
+                bgColor = "#e8f5e9";
+                icon = "🌮";
+                break;
+            case "American":
+                textColor = "#4e342e";
+                bgColor = "#efebe9";
+                icon = "🍔";
+                break;
+            case "Chinese":
+                textColor = "#b71c1c";
+                bgColor = "#fff3e0";
+                icon = "🍜";
+                break;
+            default:
+                textColor = "#1565c0";
+                bgColor = "#e3f2fd";
+                icon = "🍽️";
+        }
+        Label cuisineLabel = new Label(icon + " " + restaurant.GetCuisine());
+        cuisineLabel.setStyle(
+            "-fx-font-size: 12px;" +
+            "-fx-text-fill: " + textColor + ";" +
+            "-fx-background-color: " + bgColor + ";" +
+            "-fx-padding: 3 8 3 8;" +
+            "-fx-background-radius: 12;"
+        );
+        
         HBox badges = new HBox(8);
         badges.setAlignment(Pos.CENTER_LEFT);
-        badges.getChildren().addAll(priceLabel, pickupTimeLabel);
+        badges.getChildren().addAll(priceLabel, pickupTimeLabel, cuisineLabel);
 
         this.getChildren().addAll(nameLabel, sep, addressLabel, descriptionLabel, badges);
     }

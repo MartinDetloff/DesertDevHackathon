@@ -1,11 +1,12 @@
-0,Dions,We have some leftover pizzas,8010 Academy Rd NE,10,4,8:30 PM - 9:30 PM
-1,Frontier Restaurant,Fresh burritos available,2400 Central Ave SE,15,5,7:00 PM - 8:00 PM
-2,Golden Pride,Extra fried chicken ready,6301 San Mateo Blvd NE,12,4,6:30 PM - 7:30 PM
-3,Sadie's of New Mexico,Leftover enchiladas special,6230 4th St NW,20,5,8:00 PM - 9:00 PM
-4,Blake's Lotaburger,Burgers available for pickup,3800 Central Ave SE,9,4,5:30 PM - 6:30 PM
-5,El Pinto,Extra salsa and plates,10500 4th St NW,18,5,7:30 PM - 8:30 PM
-6,Range Cafe,Homestyle meals remaining,925 S Camino Del Pueblo,14,4,6:00 PM - 7:00 PM
-7,Twisters,Leftover burritos and fries,4201 Central Ave NW,11,4,9:00 PM - 11:00 PM
-8,La Salita,Extra tacos available,1217 Eubank Blvd NE,13,5,7:00 PM - 8:00 PM
-9,Garcia's Kitchen,Fresh plates ready,1736 Central Ave SW,16,4,6:30 PM - 7:30 PM
-10,Monroe's Restaurant,Extra New Mexican dishes,6051 Osuna Rd NE,17,5,8:30 PM - 11:30 PM
+0,Dions,We have some leftover pizzas,8010 Academy Rd NE,10,4,8:30 PM - 9:30 PM,Italian
+1,Frontier Restaurant,Fresh burritos available,2400 Central Ave SE,15,5,7:00 PM - 8:00 PM,Mexican
+2,Golden Pride,Extra fried chicken ready,6301 San Mateo Blvd NE,12,4,6:30 PM - 7:30 PM,American
+3,Sadie's of New Mexico,Leftover enchiladas special,6230 4th St NW,20,5,8:00 PM - 9:00 PM,Mexican
+4,Blake's Lotaburger,Burgers available for pickup,3800 Central Ave SE,9,4,5:30 PM - 6:30 PM,American
+5,El Pinto,Extra salsa and plates,10500 4th St NW,18,5,7:30 PM - 8:30 PM,Mexican
+6,Range Cafe,Homestyle meals remaining,925 S Camino Del Pueblo,14,4,6:00 PM - 7:00 PM,American
+7,Twisters,Leftover burritos and fries,4201 Central Ave NW,11,4,9:00 PM - 11:00 PM,American
+8,La Salita,Extra tacos available,1217 Eubank Blvd NE,13,5,7:00 PM - 8:00 PM,Mexican
+9,Garcia's Kitchen,Fresh plates ready,1736 Central Ave SW,16,4,6:30 PM - 7:30 PM,Mexican
+10,Monroe's Restaurant,Extra New Mexican dishes,6051 Osuna Rd NE,17,5,8:30 PM - 11:30 PM,Mexican
+0,Cafe,Overmade food,11111 Happy ave NE,4,1,10:30 AM - 11:30 AM,Italian
