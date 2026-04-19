@@ -3,6 +3,7 @@ package src;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import javafx.geometry.HPos;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.geometry.VPos;
 import javafx.scene.control.Alert;
@@ -28,28 +29,40 @@ public class OwnerPage
     TextField m_addressField = new TextField();
     TextField m_minPriceField = new TextField();
     TextField m_maxPriceField = new TextField();
-    
-    public OwnerPage() 
+
+    public OwnerPage()
     {
         m_OwnerRoot.setStyle("-fx-background-color: #F8F7F4;");
+        m_OwnerRoot.setPadding(new Insets(16, 32, 16, 32));
+        m_OwnerRoot.setVgap(5);
+        m_OwnerRoot.setHgap(8);
+
         String comboStyle =
-        "-fx-background-color: #FFFFFF;" +
-        "-fx-border-color: #606c38;" +
-        "-fx-border-radius: 6;" +
-        "-fx-background-radius: 6;" +
-        "-fx-font-size: 13px;" +
-        "-fx-padding: 4 8 4 8;";
+                "-fx-background-color: #FFFFFF;" +
+                        "-fx-border-color: #0F6E56;" +
+                        "-fx-border-width: 0.5;" +
+                        "-fx-border-radius: 8;" +
+                        "-fx-background-radius: 8;" +
+                        "-fx-font-size: 13px;" +
+                        "-fx-padding: 4 8 4 8;";
 
-        String szTextFieldStyle = "-fx-background-color: #FFFFFF; -fx-border-color: #606c38;";
+        String szTextFieldStyle =
+                "-fx-background-color: #FFFFFF;" +
+                        "-fx-border-color: #D3D1C7;" +
+                        "-fx-border-width: 0.5;" +
+                        "-fx-border-radius: 8;" +
+                        "-fx-background-radius: 8;" +
+                        "-fx-font-size: 13px;" +
+                        "-fx-padding: 4 8 4 8;";
 
-        ColumnConstraints labelCol = new ColumnConstraints(130);
+        ColumnConstraints labelCol = new ColumnConstraints(120);
         labelCol.setHalignment(HPos.LEFT);
 
         ColumnConstraints inputCol = new ColumnConstraints();
         inputCol.setHgrow(Priority.ALWAYS);
-        
+
         m_OwnerRoot.getColumnConstraints().addAll(labelCol, inputCol);
-        
+
         int iRow = 0;
         AddHeader("RESTAURANT INFO", iRow++);
         AddLabel("Name *", iRow);
@@ -60,9 +73,9 @@ public class OwnerPage
 
         AddLabel("Description", iRow);
         m_descField.setPromptText("Describe tonight's surplus food...");
-        m_descField.setPrefRowCount(3);
+        m_descField.setPrefRowCount(4);
         m_descField.setWrapText(true);
-        m_descField.setStyle(szTextFieldStyle + "-fx-control-inner-background: #FFFFFF;" );
+        m_descField.setStyle(szTextFieldStyle + "-fx-control-inner-background: #FFFFFF;");
         m_OwnerRoot.add(m_descField, 1, iRow++);
 
         AddLabel("Address *", iRow);
@@ -76,8 +89,6 @@ public class OwnerPage
         cuisineBox.setValue("Italian");
         cuisineBox.setStyle(comboStyle);
         m_OwnerRoot.add(cuisineBox, 1, iRow++);
-
-        AddSeperator(iRow++);
 
         AddHeader("PRICING", iRow++);
         AddLabel("Price range *", iRow);
@@ -95,15 +106,16 @@ public class OwnerPage
         m_maxPriceField.setStyle(szTextFieldStyle);
 
         for (TextField tf : new TextField[]{m_minPriceField, m_maxPriceField}) {
-        tf.textProperty().addListener((obs, old, val) -> {
-            if (!val.matches("[0-9]*\\.?[0-9]*")) tf.setText(old);
-        });
+            tf.textProperty().addListener((obs, old, val) -> {
+                if (!val.matches("[0-9]*\\.?[0-9]*")) tf.setText(old);
+            });
         }
 
-        priceBox.getChildren().addAll(m_minPriceField, new Label("–"), m_maxPriceField);
+        Label dashLabel = new Label("–");
+        dashLabel.setStyle("-fx-font-size: 13px; -fx-text-fill: #5F5E5A;");
+        priceBox.getChildren().addAll(m_minPriceField, dashLabel, m_maxPriceField);
         m_OwnerRoot.add(priceBox, 1, iRow++);
 
-        AddSeperator(iRow++);
         AddHeader("PICKUP TIME", iRow++);
 
         AddLabel("Pickup time *", iRow);
@@ -126,7 +138,7 @@ public class OwnerPage
         int roundedHour      = now.getMinute() < 30 ? now.getHour() : now.getHour() + 1;
         String defaultStart  = LocalTime.of(roundedHour > 23 ? 0 : roundedHour, roundedMin).format(fmt);
         String defaultEnd    = LocalTime.of(roundedHour > 23 ? 0 : roundedHour + 1, roundedMin).format(fmt);
-    
+
         startTime.setValue(defaultStart);
         endTime.setValue(defaultEnd);
 
@@ -135,8 +147,8 @@ public class OwnerPage
 
         Label toLabel = new Label("to");
         toLabel.setStyle(
-            "-fx-font-size: 13px;" +
-            "-fx-text-fill: #555555;"
+                "-fx-font-size: 13px;" +
+                        "-fx-text-fill: #5F5E5A;"
         );
 
         HBox timeBox = new HBox(8);
@@ -144,14 +156,83 @@ public class OwnerPage
         timeBox.getChildren().addAll(startTime, toLabel, endTime);
         m_OwnerRoot.add(timeBox, 1, iRow++);
 
+        AddSeperator(iRow++);
+
         HBox buttonBox = new HBox(10);
         buttonBox.setAlignment(Pos.CENTER_RIGHT);
+        buttonBox.setPadding(new Insets(2, 0, 0, 0));
         GridPane.setColumnSpan(buttonBox, 2);
 
         Button clearBtn = new Button("Clear");
-        Button saveBtn  = new Button("Save Listing");
-        saveBtn.setStyle("-fx-background-color: #606c38; -fx-text-fill: white; -fx-font-weight: bold;");
-        
+        clearBtn.setStyle(
+                "-fx-font-size: 13px;" +
+                        "-fx-background-color: transparent;" +
+                        "-fx-border-color: #D3D1C7;" +
+                        "-fx-border-width: 0.5;" +
+                        "-fx-border-radius: 8;" +
+                        "-fx-background-radius: 8;" +
+                        "-fx-text-fill: #5F5E5A;" +
+                        "-fx-padding: 7 16 7 16;" +
+                        "-fx-cursor: hand;"
+        );
+        clearBtn.setOnMouseEntered(e -> clearBtn.setStyle(
+                "-fx-font-size: 13px;" +
+                        "-fx-background-color: #F8F7F4;" +
+                        "-fx-border-color: #888780;" +
+                        "-fx-border-width: 0.5;" +
+                        "-fx-border-radius: 8;" +
+                        "-fx-background-radius: 8;" +
+                        "-fx-text-fill: #5F5E5A;" +
+                        "-fx-padding: 7 16 7 16;" +
+                        "-fx-cursor: hand;"
+        ));
+        clearBtn.setOnMouseExited(e -> clearBtn.setStyle(
+                "-fx-font-size: 13px;" +
+                        "-fx-background-color: transparent;" +
+                        "-fx-border-color: #D3D1C7;" +
+                        "-fx-border-width: 0.5;" +
+                        "-fx-border-radius: 8;" +
+                        "-fx-background-radius: 8;" +
+                        "-fx-text-fill: #5F5E5A;" +
+                        "-fx-padding: 7 16 7 16;" +
+                        "-fx-cursor: hand;"
+        ));
+
+        Button saveBtn = new Button("Save Listing");
+        saveBtn.setStyle(
+                "-fx-font-size: 13px;" +
+                        "-fx-background-color: transparent;" +
+                        "-fx-border-color: #0F6E56;" +
+                        "-fx-border-width: 0.5;" +
+                        "-fx-border-radius: 8;" +
+                        "-fx-background-radius: 8;" +
+                        "-fx-text-fill: #0F6E56;" +
+                        "-fx-padding: 7 16 7 16;" +
+                        "-fx-cursor: hand;"
+        );
+        saveBtn.setOnMouseEntered(e -> saveBtn.setStyle(
+                "-fx-font-size: 13px;" +
+                        "-fx-background-color: #E1F5EE;" +
+                        "-fx-border-color: #0F6E56;" +
+                        "-fx-border-width: 0.5;" +
+                        "-fx-border-radius: 8;" +
+                        "-fx-background-radius: 8;" +
+                        "-fx-text-fill: #0F6E56;" +
+                        "-fx-padding: 7 16 7 16;" +
+                        "-fx-cursor: hand;"
+        ));
+        saveBtn.setOnMouseExited(e -> saveBtn.setStyle(
+                "-fx-font-size: 13px;" +
+                        "-fx-background-color: transparent;" +
+                        "-fx-border-color: #0F6E56;" +
+                        "-fx-border-width: 0.5;" +
+                        "-fx-border-radius: 8;" +
+                        "-fx-background-radius: 8;" +
+                        "-fx-text-fill: #0F6E56;" +
+                        "-fx-padding: 7 16 7 16;" +
+                        "-fx-cursor: hand;"
+        ));
+
         clearBtn.setOnAction( e -> {
             clearFields();
         });
@@ -170,13 +251,13 @@ public class OwnerPage
             {
 
                 RestaurantData restaurantData = new RestaurantData(
-                    m_nameField.getText(),
-                    m_descField.getText(),
-                    m_addressField.getText(),
-                    Integer.parseInt(m_maxPriceField.getText()),
-                    Integer.parseInt(m_minPriceField.getText()),
-                    startTime.getValue() + " - " + endTime.getValue(),
-                    cuisineBox.getValue()
+                        m_nameField.getText(),
+                        m_descField.getText(),
+                        m_addressField.getText(),
+                        Integer.parseInt(m_maxPriceField.getText()),
+                        Integer.parseInt(m_minPriceField.getText()),
+                        startTime.getValue() + " - " + endTime.getValue(),
+                        cuisineBox.getValue()
                 );
 
                 m_utils.AddRestaurant(restaurantData);
@@ -200,12 +281,10 @@ public class OwnerPage
     {
         Label header = new Label(szName.toUpperCase());
         header.setStyle(
-            "-fx-font-size: 11px;" +
-            "-fx-font-weight: bold;" +
-            "-fx-text-fill: #555555;" +
-            "-fx-padding: 12 0 4 0;" +
-            "-fx-border-color: transparent transparent #e0e0e0 transparent;" +
-            "-fx-border-width: 0 0 1 0;"
+                "-fx-font-size: 11px;" +
+                        "-fx-font-weight: bold;" +
+                        "-fx-text-fill: #5F5E5A;" +
+                        "-fx-padding: 4 0 2 0;"
         );
         header.setMaxWidth(Double.MAX_VALUE);
         GridPane.setColumnSpan(header, 2);
@@ -215,7 +294,7 @@ public class OwnerPage
     private void AddSeperator(int iRow)
     {
         Separator sep = new Separator();
-        sep.setStyle("-fx-padding: 6 0 6 0;");
+        sep.setStyle("-fx-padding: 4 0 4 0;");
         GridPane.setColumnSpan(sep, 2);
         m_OwnerRoot.add(sep, 0, iRow);
     }
@@ -224,10 +303,10 @@ public class OwnerPage
     {
         Label label = new Label(szText);
         label.setStyle(
-            "-fx-font-size: 13px;" +
-            "-fx-text-fill: #000000;" +
-            "-fx-font-weight: bold;" +
-            "-fx-padding: 0 12 0 0;"
+                "-fx-font-size: 13px;" +
+                        "-fx-text-fill: #1A1A18;" +
+                        "-fx-font-weight: bold;" +
+                        "-fx-padding: 0 12 0 0;"
         );
         label.setAlignment(Pos.CENTER_RIGHT);
         label.setMaxWidth(Double.MAX_VALUE);
@@ -238,10 +317,10 @@ public class OwnerPage
     private boolean ValidateInputs()
     {
         return ! m_nameField.getText().isEmpty() && ! m_nameField.getText().contains(",") &&
-               ! m_descField.getText().isEmpty() && ! m_descField.getText().contains(",") &&
-               ! m_addressField.getText().isEmpty() && ! m_addressField.getText().contains(",") &&
-               ! m_minPriceField.getText().isEmpty() && ! m_minPriceField.getText().contains(",") &&
-               ! m_maxPriceField.getText().isEmpty() && ! m_maxPriceField.getText().contains(",");
+                ! m_descField.getText().isEmpty() && ! m_descField.getText().contains(",") &&
+                ! m_addressField.getText().isEmpty() && ! m_addressField.getText().contains(",") &&
+                ! m_minPriceField.getText().isEmpty() && ! m_minPriceField.getText().contains(",") &&
+                ! m_maxPriceField.getText().isEmpty() && ! m_maxPriceField.getText().contains(",");
     }
 
     private void clearFields()
