@@ -7,4 +7,13 @@
 6,Garcia's Kitchen,Fresh plates ready,1736 Central Ave SW,16,4,6:30 PM - 7:30 PM,Mexican
 7,Monroe's Restaurant,Extra New Mexican dishes,6051 Osuna Rd NE,17,5,8:30 PM - 11:30 PM,Mexican
 8,Cafe,Overmade food,11111 Happy ave NE,4,1,10:30 AM - 11:30 AM,Italian
-0,Test Rest,Test desc,10001 Coors Bypass NW.,20,10,12:00 PM - 1:00 PM,Italian
+9,Panda Express,Extra orange chicken and rice available,2100 Louisiana Blvd NE,12,4,7:00 PM - 8:00 PM,Chinese
+10,Olive Garden,Leftover pasta and breadsticks,7500 Jefferson St NE,18,4,8:00 PM - 9:00 PM,Italian
+11,Chipotle,Extra burrito bowls ready,8200 Montgomery Blvd NE,14,5,6:30 PM - 7:30 PM,Mexican
+12,Applebee's,Extra burgers and fries available,2600 Coors Blvd NW,16,3,9:00 PM - 10:00 PM,American
+13,P.F. Chang's,Extra noodles and dumplings,2241 Q St NE,20,5,8:30 PM - 9:30 PM,Chinese
+14,The Cheesecake Factory,Extra entrees and desserts,6600 Menaul Blvd NE,22,5,9:00 PM - 10:00 PM,American
+15,Little Caesars,Hot and ready pizzas left,5001 Montgomery Blvd NE,10,3,7:00 PM - 8:00 PM,Italian
+16,Golden Corral,Extra buffet items available,2701 Coors Blvd NW,25,4,8:00 PM - 9:30 PM,American
+17,Panda House,Extra fried rice and chicken,2200 Eubank Blvd NE,11,4,6:00 PM - 7:00 PM,Chinese
+18,On The Border,Extra tacos and fajitas,10000 Coors Bypass NW,19,4,7:30 PM - 8:30 PM,Mexican

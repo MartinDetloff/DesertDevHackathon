@@ -230,19 +230,4 @@ public class UserPage
             m_vbRestaurantsBox.getChildren().add(restaurantPane);
         }
     }
-    private void SetupUserPage()
-    {
-        m_UserRoot.setPadding(new Insets(20));
-        SetupFilters(); 
-        
-        m_vbRestaurantsBox.setPadding(new Insets(20));
-        PopulateRestaurantsBox();
-
-        ScrollPane scrollPane = new ScrollPane(m_vbRestaurantsBox);
-        scrollPane.setFitToWidth(true);
-        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
-        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-
-        m_UserRoot.getChildren().addAll(boxFilters, scrollPane);
-    }
 }
