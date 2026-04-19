@@ -11,6 +11,7 @@ public class MainApp extends Application
     private StartPage m_StartPage = new StartPage();
     private PricePage m_PricePage = new PricePage();
     private CusisinePage m_CusisinePage = new CusisinePage();
+    private TimePage m_TimePage = new TimePage();
 
     public static void main(String[] args) 
     {
@@ -83,5 +84,7 @@ public class MainApp extends Application
 
     private void SetTimePage(Stage primaryStage)
     {
+        primaryStage.setScene(new Scene(m_TimePage.m_TimePageRoot, 610, 450));
+        primaryStage.show();
     }
 }
