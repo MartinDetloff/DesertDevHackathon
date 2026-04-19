@@ -22,7 +22,7 @@ public class MainApp extends Application
     public void start(Stage primaryStage) 
     {
         m_StartPage.userButton.setOnAction( e -> {
-            primaryStage.setScene(new Scene(m_PricePage.m_PricePageRoot, 700, 450));
+            primaryStage.setScene(new Scene(m_PricePage.m_PricePageRoot, 610, 450));
             primaryStage.show();
         });
 
@@ -94,7 +94,7 @@ public class MainApp extends Application
         });
 
          m_StartPage.ownerButton.setOnAction( e -> {
-            primaryStage.setScene(new Scene(m_OwnerPage.m_OwnerRoot, 600, 400));
+            primaryStage.setScene(new Scene(m_OwnerPage.m_OwnerRoot, 610, 450));
             primaryStage.show();
         });
 
@@ -116,7 +116,7 @@ public class MainApp extends Application
 
     private void SetUserPage(Stage primaryStage)
     {
-        primaryStage.setScene(new Scene(m_UserPage.m_UserRoot, 650, 450));
+        primaryStage.setScene(new Scene(m_UserPage.m_UserRoot, 610, 450));
         primaryStage.show();
     }
 }

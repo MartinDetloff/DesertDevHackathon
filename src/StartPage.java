@@ -60,33 +60,33 @@ public class StartPage {
         userButton.setStyle(
                 "-fx-font-size: 13px;" +
                         "-fx-background-color: transparent;" +
-                        "-fx-border-color: #0F6E56;" +
+                        "-fx-border-color: #283618;" +
                         "-fx-border-width: 0.5;" +
                         "-fx-border-radius: 8;" +
                         "-fx-background-radius: 8;" +
-                        "-fx-text-fill: #0F6E56;" +
+                        "-fx-text-fill: #283618;" +
                         "-fx-padding: 7 16 7 16;" +
                         "-fx-cursor: hand;"
         );
         userButton.setOnMouseEntered(e -> userButton.setStyle(
                 "-fx-font-size: 13px;" +
                         "-fx-background-color: #E1F5EE;" +
-                        "-fx-border-color: #0F6E56;" +
+                        "-fx-border-color: #283618;" +
                         "-fx-border-width: 0.5;" +
                         "-fx-border-radius: 8;" +
                         "-fx-background-radius: 8;" +
-                        "-fx-text-fill: #0F6E56;" +
+                        "-fx-text-fill: #283618;" +
                         "-fx-padding: 7 16 7 16;" +
                         "-fx-cursor: hand;"
         ));
         userButton.setOnMouseExited(e -> userButton.setStyle(
                 "-fx-font-size: 13px;" +
                         "-fx-background-color: transparent;" +
-                        "-fx-border-color: #0F6E56;" +
+                        "-fx-border-color: #283618;" +
                         "-fx-border-width: 0.5;" +
                         "-fx-border-radius: 8;" +
                         "-fx-background-radius: 8;" +
-                        "-fx-text-fill: #0F6E56;" +
+                        "-fx-text-fill: #283618;" +
                         "-fx-padding: 7 16 7 16;" +
                         "-fx-cursor: hand;"
         ));
@@ -95,33 +95,33 @@ public class StartPage {
         ownerButton.setStyle(
                 "-fx-font-size: 13px;" +
                         "-fx-background-color: transparent;" +
-                        "-fx-border-color: #0F6E56;" +
+                        "-fx-border-color: #283618;" +
                         "-fx-border-width: 0.5;" +
                         "-fx-border-radius: 8;" +
                         "-fx-background-radius: 8;" +
-                        "-fx-text-fill: #0F6E56;" +
+                        "-fx-text-fill: #283618;" +
                         "-fx-padding: 7 16 7 16;" +
                         "-fx-cursor: hand;"
         );
         ownerButton.setOnMouseEntered(e -> ownerButton.setStyle(
                 "-fx-font-size: 13px;" +
                         "-fx-background-color: #E1F5EE;" +
-                        "-fx-border-color: #0F6E56;" +
+                        "-fx-border-color: #283618;" +
                         "-fx-border-width: 0.5;" +
                         "-fx-border-radius: 8;" +
                         "-fx-background-radius: 8;" +
-                        "-fx-text-fill: #0F6E56;" +
+                        "-fx-text-fill: #283618;" +
                         "-fx-padding: 7 16 7 16;" +
                         "-fx-cursor: hand;"
         ));
         ownerButton.setOnMouseExited(e -> ownerButton.setStyle(
                 "-fx-font-size: 13px;" +
                         "-fx-background-color: transparent;" +
-                        "-fx-border-color: #0F6E56;" +
+                        "-fx-border-color: #283618;" +
                         "-fx-border-width: 0.5;" +
                         "-fx-border-radius: 8;" +
                         "-fx-background-radius: 8;" +
-                        "-fx-text-fill: #0F6E56;" +
+                        "-fx-text-fill: #283618;" +
                         "-fx-padding: 7 16 7 16;" +
                         "-fx-cursor: hand;"
         ));
@@ -197,7 +197,7 @@ public class StartPage {
 
         m_StartPageRoot.setSpacing(24);
         m_StartPageRoot.setPadding(new Insets(48, 40, 40, 40));
-        m_StartPageRoot.setStyle("-fx-background-color: #F8F7F4;");
+        m_StartPageRoot.setStyle("-fx-background-color: #FEFAE0;");
         m_StartPageRoot.getChildren().addAll(title, description, lowerBox);
     }
 }
