@@ -16,7 +16,7 @@ public class UserPage extends Application
     private HBox boxFilters = new HBox();
     private VBox m_vbRestaurantsBox = new VBox(20);
 
-    private Utils m_utils = new Utils();
+    private static Utils m_utils = new Utils();
 
     private ComboBox<String> m_priceFilters = new ComboBox<>();
 
@@ -25,6 +25,7 @@ public class UserPage extends Application
     public static void main(String[] args) 
     {
         launch(args);
+        m_utils.ClearRestaurants();
     }
 
     @Override
