@@ -5,6 +5,7 @@ import java.time.format.DateTimeFormatter;
 import javafx.application.Application;
 import javafx.geometry.HPos;
 import javafx.geometry.Pos;
+import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -108,15 +109,31 @@ public class OwnerPage extends Application
 
         int roundedMin       = now.getMinute() < 30 ? 30 : 0;
         int roundedHour      = now.getMinute() < 30 ? now.getHour() : now.getHour() + 1;
-        String defaultStart  = LocalTime.of(roundedHour > 23 ? 1 : roundedHour, roundedMin).format(fmt);
-        String defaultEnd    = LocalTime.of(roundedHour + 1 > 23 ? 1 : roundedHour + 1, roundedMin).format(fmt);
+        String defaultStart  = LocalTime.of(roundedHour > 23 ? 0 : roundedHour, roundedMin).format(fmt);
+        String defaultEnd    = LocalTime.of(roundedHour > 23 ? 0 : roundedHour + 1, roundedMin).format(fmt);
     
         startTime.setValue(defaultStart);
         endTime.setValue(defaultEnd);
+        String comboStyle =
+        "-fx-background-color: white;" +
+        "-fx-border-color: #e0e0e0;" +
+        "-fx-border-radius: 6;" +
+        "-fx-background-radius: 6;" +
+        "-fx-font-size: 13px;" +
+        "-fx-padding: 4 8 4 8;";
+
+        startTime.setStyle(comboStyle);
+        endTime.setStyle(comboStyle);
+
+        Label toLabel = new Label("to");
+        toLabel.setStyle(
+            "-fx-font-size: 13px;" +
+            "-fx-text-fill: #555555;"
+        );
 
         HBox timeBox = new HBox(8);
         timeBox.setAlignment(Pos.CENTER_LEFT);
-        timeBox.getChildren().addAll(startTime, new Label("to"), endTime);
+        timeBox.getChildren().addAll(startTime, toLabel, endTime);
         m_root.add(timeBox, 1, iRow++);
 
         HBox buttonBox = new HBox(10);
@@ -179,11 +196,12 @@ public class OwnerPage extends Application
         header.setStyle(
             "-fx-font-size: 11px;" +
             "-fx-font-weight: bold;" +
-            "-fx-text-fill: #444444;" +
-            "-fx-background-color: #eeeeee;" +
-            "-fx-padding: 4 10 4 10;" +
-            "-fx-background-radius: 4;"
+            "-fx-text-fill: #555555;" +
+            "-fx-padding: 12 0 4 0;" +
+            "-fx-border-color: transparent transparent #e0e0e0 transparent;" +
+            "-fx-border-width: 0 0 1 0;"
         );
+        header.setMaxWidth(Double.MAX_VALUE);
         GridPane.setColumnSpan(header, 2);
         m_root.add(header, 0, iRow);
     }
@@ -200,12 +218,14 @@ public class OwnerPage extends Application
     {
         Label label = new Label(szText);
         label.setStyle(
-                "-fx-font-size: 13px;" +
-                "-fx-text-fill: #555555;" +
-                "-fx-padding: 0 8 0 0;"
+            "-fx-font-size: 13px;" +
+            "-fx-text-fill: #333333;" +
+            "-fx-font-weight: bold;" +
+            "-fx-padding: 0 12 0 0;"
         );
         label.setAlignment(Pos.CENTER_RIGHT);
         label.setMaxWidth(Double.MAX_VALUE);
+        GridPane.setValignment(label, VPos.CENTER);
         m_root.add(label, 0, iRow);
     }
 
