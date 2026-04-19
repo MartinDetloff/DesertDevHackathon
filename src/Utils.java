@@ -69,8 +69,8 @@ public class Utils
         {   
             fileWriter.write(restaurantData.GetID() + ",");
             fileWriter.write(restaurantData.GetName() + ",");
-            fileWriter.write(restaurantData.GetAddress() + ",");
             fileWriter.write(restaurantData.GetDescription() + ",");
+            fileWriter.write(restaurantData.GetAddress() + ",");
             fileWriter.write(restaurantData.GetMaxPrice() + ",");
             fileWriter.write(restaurantData.GetMinPrice() + ",");
             fileWriter.write(restaurantData.GetPickupTime() + "\n");
