@@ -17,6 +17,9 @@ public class StartPage {
     private Label userDescription;
     public Button userButton;
     public VBox m_StartPageRoot = new VBox();
+    public String m_PriceOption;
+    public String m_foodType;
+    public String m_time;
 
     public StartPage()
     {
