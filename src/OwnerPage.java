@@ -108,7 +108,7 @@ public class OwnerPage extends Application
         int roundedMin       = now.getMinute() < 30 ? 30 : 0;
         int roundedHour      = now.getMinute() < 30 ? now.getHour() : now.getHour() + 1;
         String defaultStart  = LocalTime.of(roundedHour, roundedMin).format(fmt);
-        String defaultEnd    = LocalTime.of(roundedHour + 1, roundedMin).format(fmt);
+        String defaultEnd    = LocalTime.of(roundedHour + 1 > 23 ? 1 : roundedHour + 1, roundedMin).format(fmt);
     
         startTime.setValue(defaultStart);
         endTime.setValue(defaultEnd);
@@ -174,10 +174,10 @@ public class OwnerPage extends Application
 
     private void AddHeader(String szName, int iRow)
     {
-        Label pricingHeader = new Label(szName);
-        pricingHeader.setStyle("-fx-font-size: 14px; -fx-text-fill: #888; -fx-padding: 0 0 4 0;");
-        GridPane.setColumnSpan(pricingHeader, 2);
-        m_root.add(pricingHeader, 0, iRow);
+        Label header = new Label(szName);
+        header.setStyle("-fx-font-size: 14px; -fx-text-fill: #888; -fx-padding: 0 0 4 0;");
+        GridPane.setColumnSpan(header, 2);
+        m_root.add(header, 0, iRow);
     }
 
     private void AddSeperator(int iRow)
