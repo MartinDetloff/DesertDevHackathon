@@ -59,7 +59,7 @@ public class OwnerPage extends Application
         m_root.add(m_descField, 1, iRow++);
 
         AddLabel("Address *", iRow);
-        m_addressField.setPromptText("e.g. 123 Main St, New York, NY 10001");
+        m_addressField.setPromptText("e.g. 123 Main Street");
         m_root.add(m_addressField, 1, iRow++);
 
         AddSeperator(iRow++);
@@ -192,11 +192,11 @@ public class OwnerPage extends Application
 
     private boolean ValidateInputs()
     {
-        return !m_nameField.getText().isEmpty() &&
-               !m_descField.getText().isEmpty() &&
-               !m_addressField.getText().isEmpty() &&
-               !m_minPriceField.getText().isEmpty() &&
-               !m_maxPriceField.getText().isEmpty();
+        return ! m_nameField.getText().isEmpty() && ! m_nameField.getText().contains(",") &&
+               ! m_descField.getText().isEmpty() && ! m_descField.getText().contains(",") &&
+               ! m_addressField.getText().isEmpty() && ! m_addressField.getText().contains(",") &&
+               ! m_minPriceField.getText().isEmpty() && ! m_minPriceField.getText().contains(",") &&
+               ! m_maxPriceField.getText().isEmpty() && ! m_maxPriceField.getText().contains(",");
     }
 
     private void clearFields()

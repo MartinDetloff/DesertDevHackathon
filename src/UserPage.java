@@ -76,7 +76,7 @@ public class UserPage extends Application
         {
             if ( szPriceFilter.equals("Under $3") && restaurant.GetMinPrice() < 3 ||
                  szPriceFilter.equals("$3-$5") && restaurant.GetMinPrice() > 3 && restaurant.GetMinPrice() <= 5 || 
-                 szPriceFilter.equals("$5+") && restaurant.GetMinPrice() > 5 )
+                 szPriceFilter.equals("$5+") && restaurant.GetMaxPrice() > 5 )
             {
                 RestaurauntPane restaurantPane = new RestaurauntPane(restaurant);
                 m_vbRestaurantsBox.getChildren().add(restaurantPane);
