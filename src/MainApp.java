@@ -29,19 +29,42 @@ public class MainApp extends Application
             m_StartPage.m_PriceOption = m_PricePage.med.getText();
             SetCuisinePage(primaryStage);
         } );
+
         m_PricePage.low.setOnAction( e -> {
             m_StartPage.m_PriceOption = m_PricePage.low.getText();
             SetCuisinePage(primaryStage);
         } );
+
         m_PricePage.high.setOnAction( e -> {
             m_StartPage.m_PriceOption = m_PricePage.high.getText();
             SetCuisinePage(primaryStage);
         } );
+
         m_PricePage.any.setOnAction( e -> {
             m_StartPage.m_PriceOption = m_PricePage.any.getText();
             SetCuisinePage(primaryStage);
         } );
 
+        m_CusisinePage.american.setOnAction( e -> {
+            m_StartPage.m_PriceOption = m_CusisinePage.american.getText();
+            SetTimePage(primaryStage);
+        });
+        m_CusisinePage.mexican.setOnAction( e -> {
+            m_StartPage.m_PriceOption = m_CusisinePage.mexican.getText();
+            SetTimePage(primaryStage);
+        });
+        m_CusisinePage.any.setOnAction( e -> {
+            m_StartPage.m_PriceOption = m_CusisinePage.any.getText();
+            SetTimePage(primaryStage);
+        });
+        m_CusisinePage.italian.setOnAction( e -> {
+            m_StartPage.m_PriceOption = m_CusisinePage.italian.getText();
+            SetTimePage(primaryStage);
+        });
+        m_CusisinePage.chinese.setOnAction( e -> {
+            m_StartPage.m_PriceOption = m_CusisinePage.chinese.getText();
+            SetTimePage(primaryStage);
+        });
 
          m_StartPage.ownerButton.setOnAction( e -> {
             primaryStage.setScene(new Scene(m_OwnerPage.m_OwnerRoot, 600, 400));
@@ -58,4 +81,7 @@ public class MainApp extends Application
         primaryStage.show();
     }
 
+    private void SetTimePage(Stage primaryStage)
+    {
+    }
 }
