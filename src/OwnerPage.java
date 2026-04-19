@@ -31,16 +31,16 @@ public class OwnerPage
     
     public OwnerPage() 
     {
-      m_OwnerRoot.setStyle("-fx-background-color: #FEFAE0;");
+        m_OwnerRoot.setStyle("-fx-background-color: #F8F7F4;");
         String comboStyle =
-        "-fx-background-color: #FEFAE0;" +
+        "-fx-background-color: #FFFFFF;" +
         "-fx-border-color: #606c38;" +
         "-fx-border-radius: 6;" +
         "-fx-background-radius: 6;" +
         "-fx-font-size: 13px;" +
         "-fx-padding: 4 8 4 8;";
 
-        String szTextFieldStyle = "-fx-background-color: #FEFAE0; -fx-border-color: #606c38;";
+        String szTextFieldStyle = "-fx-background-color: #FFFFFF; -fx-border-color: #606c38;";
 
         ColumnConstraints labelCol = new ColumnConstraints(130);
         labelCol.setHalignment(HPos.LEFT);
@@ -62,7 +62,7 @@ public class OwnerPage
         m_descField.setPromptText("Describe tonight's surplus food...");
         m_descField.setPrefRowCount(3);
         m_descField.setWrapText(true);
-        m_descField.setStyle(szTextFieldStyle + "-fx-control-inner-background: #FEFAE0;" );
+        m_descField.setStyle(szTextFieldStyle + "-fx-control-inner-background: #FFFFFF;" );
         m_OwnerRoot.add(m_descField, 1, iRow++);
 
         AddLabel("Address *", iRow);
