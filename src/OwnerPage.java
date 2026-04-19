@@ -32,14 +32,14 @@ public class OwnerPage
 
     public OwnerPage()
     {
-        m_OwnerRoot.setStyle("-fx-background-color: #F8F7F4;");
+        m_OwnerRoot.setStyle("-fx-background-color: #FEFAE0;");
         m_OwnerRoot.setPadding(new Insets(16, 32, 16, 32));
         m_OwnerRoot.setVgap(5);
         m_OwnerRoot.setHgap(8);
 
         String comboStyle =
                 "-fx-background-color: #FFFFFF;" +
-                        "-fx-border-color: #0F6E56;" +
+                        "-fx-border-color: #283618;" +
                         "-fx-border-width: 0.5;" +
                         "-fx-border-radius: 8;" +
                         "-fx-background-radius: 8;" +
@@ -177,7 +177,7 @@ public class OwnerPage
         );
         clearBtn.setOnMouseEntered(e -> clearBtn.setStyle(
                 "-fx-font-size: 13px;" +
-                        "-fx-background-color: #F8F7F4;" +
+                        "-fx-background-color: #FEFAE0;" +
                         "-fx-border-color: #888780;" +
                         "-fx-border-width: 0.5;" +
                         "-fx-border-radius: 8;" +
@@ -202,33 +202,33 @@ public class OwnerPage
         saveBtn.setStyle(
                 "-fx-font-size: 13px;" +
                         "-fx-background-color: transparent;" +
-                        "-fx-border-color: #0F6E56;" +
+                        "-fx-border-color: #283618;" +
                         "-fx-border-width: 0.5;" +
                         "-fx-border-radius: 8;" +
                         "-fx-background-radius: 8;" +
-                        "-fx-text-fill: #0F6E56;" +
+                        "-fx-text-fill: #283618;" +
                         "-fx-padding: 7 16 7 16;" +
                         "-fx-cursor: hand;"
         );
         saveBtn.setOnMouseEntered(e -> saveBtn.setStyle(
                 "-fx-font-size: 13px;" +
                         "-fx-background-color: #E1F5EE;" +
-                        "-fx-border-color: #0F6E56;" +
+                        "-fx-border-color: #283618;" +
                         "-fx-border-width: 0.5;" +
                         "-fx-border-radius: 8;" +
                         "-fx-background-radius: 8;" +
-                        "-fx-text-fill: #0F6E56;" +
+                        "-fx-text-fill: #283618;" +
                         "-fx-padding: 7 16 7 16;" +
                         "-fx-cursor: hand;"
         ));
         saveBtn.setOnMouseExited(e -> saveBtn.setStyle(
                 "-fx-font-size: 13px;" +
                         "-fx-background-color: transparent;" +
-                        "-fx-border-color: #0F6E56;" +
+                        "-fx-border-color: #283618;" +
                         "-fx-border-width: 0.5;" +
                         "-fx-border-radius: 8;" +
                         "-fx-background-radius: 8;" +
-                        "-fx-text-fill: #0F6E56;" +
+                        "-fx-text-fill: #283618;" +
                         "-fx-padding: 7 16 7 16;" +
                         "-fx-cursor: hand;"
         ));

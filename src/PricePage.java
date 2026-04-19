@@ -26,35 +26,53 @@ public class PricePage {
         String toggleDefault =
                 "-fx-font-size: 13px;" +
                         "-fx-background-color: transparent;" +
+                        "-fx-body-color: transparent;" +
+                        "-fx-outer-border: #0F6E56;" +
+                        "-fx-inner-border: transparent;" +
+                        "-fx-mark-color: #0F6E56;" +
                         "-fx-border-color: #0F6E56;" +
                         "-fx-border-width: 0.5;" +
                         "-fx-border-radius: 8;" +
                         "-fx-background-radius: 8;" +
                         "-fx-text-fill: #0F6E56;" +
                         "-fx-padding: 7 16 7 16;" +
-                        "-fx-cursor: hand;";
+                        "-fx-cursor: hand;" +
+                        "-fx-background-insets: 0;" +
+                        "-fx-effect: null;";
 
         String toggleSelected =
                 "-fx-font-size: 13px;" +
                         "-fx-background-color: #E1F5EE;" +
+                        "-fx-body-color: #E1F5EE;" +
+                        "-fx-outer-border: #0F6E56;" +
+                        "-fx-inner-border: transparent;" +
+                        "-fx-mark-color: #0F6E56;" +
                         "-fx-border-color: #0F6E56;" +
                         "-fx-border-width: 0.5;" +
                         "-fx-border-radius: 8;" +
                         "-fx-background-radius: 8;" +
                         "-fx-text-fill: #0F6E56;" +
                         "-fx-padding: 7 16 7 16;" +
-                        "-fx-cursor: hand;";
+                        "-fx-cursor: hand;" +
+                        "-fx-background-insets: 0;" +
+                        "-fx-effect: null;";
 
         String toggleHover =
                 "-fx-font-size: 13px;" +
                         "-fx-background-color: #E1F5EE;" +
+                        "-fx-body-color: #E1F5EE;" +
+                        "-fx-outer-border: #0F6E56;" +
+                        "-fx-inner-border: transparent;" +
+                        "-fx-mark-color: #0F6E56;" +
                         "-fx-border-color: #0F6E56;" +
                         "-fx-border-width: 0.5;" +
                         "-fx-border-radius: 8;" +
                         "-fx-background-radius: 8;" +
                         "-fx-text-fill: #0F6E56;" +
                         "-fx-padding: 7 16 7 16;" +
-                        "-fx-cursor: hand;";
+                        "-fx-cursor: hand;" +
+                        "-fx-background-insets: 0;" +
+                        "-fx-effect: null;";
 
         optionsBox = new VBox(10);
         optionsBox.setPadding(new Insets(8, 0, 0, 0));
