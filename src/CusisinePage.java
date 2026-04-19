@@ -64,7 +64,6 @@ public class CusisinePage {
 
         any = new ToggleButton("Any cuisine");
         any.setToggleGroup(group);
-        any.setUserData("Any cuisine");
         any.setStyle(toggleDefault);
         any.setOnMouseEntered(e -> { if (!any.isSelected()) any.setStyle(toggleHover); });
         any.setOnMouseExited(e -> { if (!any.isSelected()) any.setStyle(toggleDefault); });
@@ -73,7 +72,6 @@ public class CusisinePage {
 
         mexican = new ToggleButton("Mexican");
         mexican.setToggleGroup(group);
-        mexican.setUserData("Mexican");
         mexican.setStyle(toggleDefault);
         mexican.setOnMouseEntered(e -> { if (!mexican.isSelected()) mexican.setStyle(toggleHover); });
         mexican.setOnMouseExited(e -> { if (!mexican.isSelected()) mexican.setStyle(toggleDefault); });
@@ -82,7 +80,6 @@ public class CusisinePage {
 
         american = new ToggleButton("American");
         american.setToggleGroup(group);
-        american.setUserData("American");
         american.setStyle(toggleDefault);
         american.setOnMouseEntered(e -> { if (!american.isSelected()) american.setStyle(toggleHover); });
         american.setOnMouseExited(e -> { if (!american.isSelected()) american.setStyle(toggleDefault); });
@@ -91,7 +88,6 @@ public class CusisinePage {
 
         chinese = new ToggleButton("Chinese");
         chinese.setToggleGroup(group);
-        chinese.setUserData("Chinese");
         chinese.setStyle(toggleDefault);
         chinese.setOnMouseEntered(e -> { if (!chinese.isSelected()) chinese.setStyle(toggleHover); });
         chinese.setOnMouseExited(e -> { if (!chinese.isSelected()) chinese.setStyle(toggleDefault); });
@@ -100,7 +96,6 @@ public class CusisinePage {
 
         italian = new ToggleButton("Italian");
         italian.setToggleGroup(group);
-        italian.setUserData("Italian");
         italian.setStyle(toggleDefault);
         italian.setOnMouseEntered(e -> { if (!italian.isSelected()) italian.setStyle(toggleHover); });
         italian.setOnMouseExited(e -> { if (!italian.isSelected()) italian.setStyle(toggleDefault); });

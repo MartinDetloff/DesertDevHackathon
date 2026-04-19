@@ -30,13 +30,12 @@ public class UserPage
 
     public UserPage(String szPrefTime, String szPrefCuisine, String szPrefPrice) 
     {
-        m_UserRoot.setPadding(new Insets(20));
-        SetupFilters(szPrefTime, szPrefCuisine, szPrefPrice); 
-        ApplyFilters();
-    
         m_vbRestaurantsBox.setPadding(new Insets(20));
         PopulateRestaurantsBox();
-
+        
+        m_UserRoot.setPadding(new Insets(20));
+        SetupFilters(szPrefTime, szPrefCuisine, szPrefPrice); 
+        
         ScrollPane scrollPane = new ScrollPane(m_vbRestaurantsBox);
         scrollPane.setFitToWidth(true);
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
@@ -55,11 +54,11 @@ public class UserPage
 
         m_cuisineFilers.getItems().addAll("Any cuisine", "Italian", "Mexican", "American", "Chinese");
         m_cuisineFilers.setValue(szPrefCuisine);
-    
+
         m_priceFilters.setOnAction(e -> ApplyFilters());
         m_timeFilers.setOnAction(e -> ApplyFilters());
         m_cuisineFilers.setOnAction(e -> ApplyFilters());
-
+        
         String comboStyle =
             "-fx-background-color: white;" +
             "-fx-border-color: #e0e0e0;" +
@@ -111,7 +110,7 @@ public class UserPage
         boxFilters.getChildren().addAll(priceBox, divider, timeBox, divider2, cuisineBox);
     }
 
-    private void ApplyFilters()
+    public void ApplyFilters()
     {
         m_vbRestaurantsBox.getChildren().clear();
     
