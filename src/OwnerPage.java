@@ -226,7 +226,7 @@ public class OwnerPage extends Application
         Label label = new Label(szText);
         label.setStyle(
             "-fx-font-size: 13px;" +
-            "-fx-text-fill: #333333;" +
+            "-fx-text-fill: #4d945b;" +
             "-fx-font-weight: bold;" +
             "-fx-padding: 0 12 0 0;"
         );
