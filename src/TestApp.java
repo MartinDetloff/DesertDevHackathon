@@ -13,6 +13,8 @@ public class TestApp extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+
+        /*
         RestaurauntPane pane1 = new RestaurauntPane(r1);
         RestaurauntPane pane2 = new RestaurauntPane(r2);
 
@@ -29,6 +31,7 @@ public class TestApp extends Application {
         primaryStage.setScene(scene);
         primaryStage.setTitle("Custom Pane Demo");
         primaryStage.show();
+         */
     }
 
     public static void main(String[] args) {

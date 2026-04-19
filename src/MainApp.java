@@ -8,6 +8,7 @@ public class MainApp extends Application
 {   
     private OwnerPage m_OwnerPage = new OwnerPage();
     private UserPage m_UserPage = new UserPage();
+    private StartPage m_StartPage = new StartPage();
 
     public static void main(String[] args) 
     {
@@ -17,7 +18,7 @@ public class MainApp extends Application
     @Override
     public void start(Stage primaryStage) 
     {
-        primaryStage.setScene(new Scene(m_OwnerPage.m_OwnerRoot, 600, 400));
+        primaryStage.setScene(new Scene(m_StartPage.m_StartPageRoot, 600, 400));
         primaryStage.show();
     }
 }
