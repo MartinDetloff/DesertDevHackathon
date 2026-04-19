@@ -86,7 +86,7 @@ public class PricePage {
         low.selectedProperty().addListener((obs, wasSelected, isSelected) ->
                 low.setStyle(isSelected ? toggleSelected : toggleDefault));
 
-        med = new ToggleButton("$3 - $5");
+        med = new ToggleButton("$3 – $5");
         med.setToggleGroup(group);
         med.setUserData("$3 – $5");
         med.setStyle(toggleDefault);
