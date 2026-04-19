@@ -3,6 +3,7 @@ package src;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collections;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -82,13 +83,30 @@ public class UserPage extends Application
             return;
         }
     
+        ArrayList<RestaurantData> m_aRestaurantDataTemp = new ArrayList<>();
         for ( RestaurantData restaurant : m_aRestaurantData )
         {
             if ( IsWithinPriceFilter(restaurant, szPriceFilter) && IsWithinTimeFilter(restaurant, szTimeFilter) )
-            {
-                RestaurauntPane restaurantPane = new RestaurauntPane(restaurant);
-                m_vbRestaurantsBox.getChildren().add(restaurantPane);
-            }
+                m_aRestaurantDataTemp.add(restaurant);
+        }
+
+        if ( szTimeFilter.equals("Soonest") )
+        {
+            Collections.sort(m_aRestaurantDataTemp, (r1, r2) -> {
+                String[] timeRange1 = r1.GetPickupTime().split("-");
+                String[] timeRange2 = r2.GetPickupTime().split("-");
+
+                int iStartTime1 = Integer.parseInt(GetTimeString(timeRange1[0]));
+                int iStartTime2 = Integer.parseInt(GetTimeString(timeRange2[0]));
+
+                return Integer.compare(iStartTime1, iStartTime2);
+            });
+        }
+
+        for ( RestaurantData restaurant : m_aRestaurantDataTemp )
+        {
+            RestaurauntPane restaurantPane = new RestaurauntPane(restaurant);
+            m_vbRestaurantsBox.getChildren().add(restaurantPane);
         }
     }
 
