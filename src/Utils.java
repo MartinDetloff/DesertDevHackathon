@@ -70,8 +70,8 @@ public class Utils
             fileWriter.write(restaurantData.GetName() + ",");
             fileWriter.write(restaurantData.GetAddress() + ",");
             fileWriter.write(restaurantData.GetDescription() + ",");
-            fileWriter.write(restaurantData.GetMinPrice() + ",");
-            fileWriter.write(restaurantData.GetMaxPrice() + "\n");
+            fileWriter.write(restaurantData.GetMaxPrice() + ",");
+            fileWriter.write(restaurantData.GetMinPrice() + "\n");
             fileWriter.close();
         } 
         catch (IOException e) 
