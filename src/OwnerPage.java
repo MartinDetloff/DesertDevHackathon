@@ -11,6 +11,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.Separator;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.ColumnConstraints;
@@ -168,26 +169,44 @@ public class OwnerPage extends Application
         buttonBox.getChildren().addAll(clearBtn, saveBtn);
         m_root.add(buttonBox, 0, iRow);
 
-        primaryStage.setScene(new Scene(m_root, 600, 500));
+        primaryStage.setScene(new Scene(m_root, 600, 300));
         primaryStage.show();
     }
 
     private void AddHeader(String szName, int iRow)
     {
-        Label header = new Label(szName);
-        header.setStyle("-fx-font-size: 14px; -fx-text-fill: #888; -fx-padding: 0 0 4 0;");
+        Label header = new Label(szName.toUpperCase());
+        header.setStyle(
+            "-fx-font-size: 11px;" +
+            "-fx-font-weight: bold;" +
+            "-fx-text-fill: #444444;" +
+            "-fx-background-color: #eeeeee;" +
+            "-fx-padding: 4 10 4 10;" +
+            "-fx-background-radius: 4;"
+        );
         GridPane.setColumnSpan(header, 2);
         m_root.add(header, 0, iRow);
     }
 
     private void AddSeperator(int iRow)
     {
-        m_root.add(new Label(""), 0, iRow);
+        Separator sep = new Separator();
+        sep.setStyle("-fx-padding: 6 0 6 0;");
+        GridPane.setColumnSpan(sep, 2);
+        m_root.add(sep, 0, iRow);
     }
 
     private void AddLabel(String szText, int iRow)
     {
-        m_root.add(new Label(szText), 0, iRow);
+        Label label = new Label(szText);
+        label.setStyle(
+                "-fx-font-size: 13px;" +
+                "-fx-text-fill: #555555;" +
+                "-fx-padding: 0 8 0 0;"
+        );
+        label.setAlignment(Pos.CENTER_RIGHT);
+        label.setMaxWidth(Double.MAX_VALUE);
+        m_root.add(label, 0, iRow);
     }
 
     private boolean ValidateInputs()
