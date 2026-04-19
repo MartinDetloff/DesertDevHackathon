@@ -18,7 +18,17 @@ public class MainApp extends Application
     @Override
     public void start(Stage primaryStage) 
     {
-        primaryStage.setScene(new Scene(m_StartPage.m_StartPageRoot, 600, 450));
+        m_StartPage.userButton.setOnAction( e -> {
+            primaryStage.setScene(new Scene(m_UserPage.m_UserRoot, 700, 450));
+            primaryStage.show();
+        });
+
+         m_StartPage.ownerButton.setOnAction( e -> {
+            primaryStage.setScene(new Scene(m_OwnerPage.m_OwnerRoot, 600, 400));
+            primaryStage.show();
+        });
+
+        primaryStage.setScene(new Scene(m_StartPage.m_StartPageRoot, 610, 450));
         primaryStage.show();
     }
 }

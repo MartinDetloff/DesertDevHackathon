@@ -1,30 +1,10 @@
 package src;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Collections;
-import javafx.application.Application;
-import javafx.geometry.HPos;
 import javafx.geometry.Insets;
-import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
-import javafx.geometry.VPos;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.Separator;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.ColumnConstraints;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 public class StartPage {
     private Label title;
@@ -33,9 +13,9 @@ public class StartPage {
     private VBox ownerBox;
     private VBox userBox;
     private Label ownerDescription;
-    private Button ownerButton;
+    public Button ownerButton;
     private Label userDescription;
-    private Button userButton;
+    public Button userButton;
     public VBox m_StartPageRoot = new VBox();
 
     public StartPage()
@@ -48,7 +28,7 @@ public class StartPage {
                         "-fx-padding: 0 0 4 0;"
         );
 
-        description = new Label("Connecting people to reduced-price surplus food. Less waste, more value — for restaurants and customers alike.");
+        description = new Label("Connecting people to reduced-price surplus food. Less waste,  more value — for restaurants and customers alike.");
         description.setWrapText(true);
         description.setMaxWidth(560);
         description.setStyle(

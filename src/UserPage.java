@@ -18,7 +18,7 @@ public class UserPage
 {
     private HBox boxFilters = new HBox();
     private VBox m_vbRestaurantsBox = new VBox(20);
-    private VBox m_UserRoot = new VBox(20);
+    public VBox m_UserRoot = new VBox(20);
 
     private static Utils m_utils = new Utils();
 
