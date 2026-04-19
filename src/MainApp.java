@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 public class MainApp extends Application
 {   
     private OwnerPage m_OwnerPage = new OwnerPage();
-    private UserPage m_UserPage = new UserPage();
+    private UserPage m_UserPage;
     private StartPage m_StartPage = new StartPage();
     private PricePage m_PricePage = new PricePage();
     private CusisinePage m_CusisinePage = new CusisinePage();
@@ -47,44 +47,49 @@ public class MainApp extends Application
         } );
 
         m_CusisinePage.american.setOnAction( e -> {
-            m_StartPage.m_PriceOption = m_CusisinePage.american.getText();
+            m_StartPage.m_foodType = m_CusisinePage.american.getText();
             SetTimePage(primaryStage);
         });
         m_CusisinePage.mexican.setOnAction( e -> {
-            m_StartPage.m_PriceOption = m_CusisinePage.mexican.getText();
+            m_StartPage.m_foodType = m_CusisinePage.mexican.getText();
             SetTimePage(primaryStage);
         });
         m_CusisinePage.any.setOnAction( e -> {
-            m_StartPage.m_PriceOption = m_CusisinePage.any.getText();
+            m_StartPage.m_foodType = m_CusisinePage.any.getText();
             SetTimePage(primaryStage);
         });
         m_CusisinePage.italian.setOnAction( e -> {
-            m_StartPage.m_PriceOption = m_CusisinePage.italian.getText();
+            m_StartPage.m_foodType = m_CusisinePage.italian.getText();
             SetTimePage(primaryStage);
         });
         m_CusisinePage.chinese.setOnAction( e -> {
-            m_StartPage.m_PriceOption = m_CusisinePage.chinese.getText();
+            m_StartPage.m_foodType = m_CusisinePage.chinese.getText();
             SetTimePage(primaryStage);
         });
 
         m_TimePage.any.setOnAction( e -> {
-            m_StartPage.m_PriceOption = m_TimePage.any.getText();
+            m_StartPage.m_time = m_TimePage.any.getText();
+            m_UserPage = new UserPage(m_StartPage.m_time, m_StartPage.m_foodType,  m_StartPage.m_PriceOption);
             SetUserPage(primaryStage);
         });
         m_TimePage.afternoon.setOnAction( e -> {
-            m_StartPage.m_PriceOption = m_TimePage.afternoon.getText();
+            m_StartPage.m_time = m_TimePage.afternoon.getText();
+            m_UserPage = new UserPage(m_StartPage.m_time, m_StartPage.m_foodType,  m_StartPage.m_PriceOption);
             SetUserPage(primaryStage);
         });
         m_TimePage.morning.setOnAction( e -> {
-            m_StartPage.m_PriceOption = m_TimePage.morning.getText();
+            m_StartPage.m_time = m_TimePage.morning.getText();
+            m_UserPage = new UserPage(m_StartPage.m_time, m_StartPage.m_foodType,  m_StartPage.m_PriceOption);
             SetUserPage(primaryStage);
         });
         m_TimePage.evening.setOnAction( e -> {
-            m_StartPage.m_PriceOption = m_TimePage.evening.getText();
+            m_StartPage.m_time = m_TimePage.evening.getText();
+            m_UserPage = new UserPage(m_StartPage.m_time, m_StartPage.m_foodType,  m_StartPage.m_PriceOption);
             SetUserPage(primaryStage);
         });
         m_TimePage.soonest.setOnAction( e -> {
-            m_StartPage.m_PriceOption = m_TimePage.soonest.getText();
+            m_StartPage.m_time = m_TimePage.soonest.getText();
+            m_UserPage = new UserPage(m_StartPage.m_time, m_StartPage.m_foodType,  m_StartPage.m_PriceOption);
             SetUserPage(primaryStage);
         });
 

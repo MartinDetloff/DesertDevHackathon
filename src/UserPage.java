@@ -28,11 +28,12 @@ public class UserPage
 
     private ArrayList<RestaurantData> m_aRestaurantData = m_utils.GetRestaurants();
 
-    public UserPage() 
+    public UserPage(String szPrefTime, String szPrefCuisine, String szPrefPrice) 
     {
         m_UserRoot.setPadding(new Insets(20));
-        SetupFilters(); 
-        
+        SetupFilters(szPrefTime, szPrefCuisine, szPrefPrice); 
+        ApplyFilters();
+    
         m_vbRestaurantsBox.setPadding(new Insets(20));
         PopulateRestaurantsBox();
 
@@ -44,16 +45,16 @@ public class UserPage
         m_UserRoot.getChildren().addAll(boxFilters, scrollPane);
     }
 
-    private void SetupFilters()
+    private void SetupFilters(String szPrefTime, String szPrefCuisine, String szPrefPrice)
     {
         m_priceFilters.getItems().addAll("Any price", "Under $3", "$3 – $5", "$5+");
-        m_priceFilters.setValue("Any price");
+        m_priceFilters.setValue(szPrefPrice);
 
         m_timeFilers.getItems().addAll("Any time", "Soonest", "Morning", "Afternoon", "Evening");
-        m_timeFilers.setValue("Any time");
+        m_timeFilers.setValue(szPrefTime);
 
         m_cuisineFilers.getItems().addAll("Any cuisine", "Italian", "Mexican", "American", "Chinese");
-        m_cuisineFilers.setValue("Any cuisine");
+        m_cuisineFilers.setValue(szPrefCuisine);
     
         m_priceFilters.setOnAction(e -> ApplyFilters());
         m_timeFilers.setOnAction(e -> ApplyFilters());
