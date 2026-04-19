@@ -116,7 +116,7 @@ public class MainApp extends Application
 
     private void SetUserPage(Stage primaryStage)
     {
-        primaryStage.setScene(new Scene(m_UserPage.m_UserRoot, 610, 450));
+        primaryStage.setScene(new Scene(m_UserPage.m_UserRoot, 650, 500));
         primaryStage.show();
     }
 }

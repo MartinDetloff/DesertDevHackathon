@@ -104,7 +104,7 @@ public class PricePage {
         high.selectedProperty().addListener((obs, wasSelected, isSelected) ->
                 high.setStyle(isSelected ? toggleSelected : toggleDefault));
 
-        any = new ToggleButton("Any Price");
+        any = new ToggleButton("Any price");
         any.setToggleGroup(group);
         any.setUserData("Any price");
         any.setStyle(toggleDefault);

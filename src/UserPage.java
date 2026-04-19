@@ -46,6 +46,7 @@ public class UserPage
 
     private void SetupFilters(String szPrefTime, String szPrefCuisine, String szPrefPrice)
     {
+        
         m_priceFilters.getItems().addAll("Any price", "Under $3", "$3 – $5", "$5+");
         m_priceFilters.setValue(szPrefPrice);
 
@@ -58,7 +59,7 @@ public class UserPage
         m_priceFilters.setOnAction(e -> ApplyFilters());
         m_timeFilers.setOnAction(e -> ApplyFilters());
         m_cuisineFilers.setOnAction(e -> ApplyFilters());
-        
+
         String comboStyle =
             "-fx-background-color: white;" +
             "-fx-border-color: #e0e0e0;" +
@@ -108,6 +109,7 @@ public class UserPage
             "-fx-border-width: 0 0 1 0;"
         );
         boxFilters.getChildren().addAll(priceBox, divider, timeBox, divider2, cuisineBox);
+        ApplyFilters();
     }
 
     public void ApplyFilters()
@@ -156,9 +158,9 @@ public class UserPage
         if ( szPriceFilter.equals("Any price") )
             return true;
 
-        return szPriceFilter.equals("Under $3") && restaurant.GetMinPrice() < 3 ||
-               szPriceFilter.equals("$3 – $5") && restaurant.GetMinPrice() >= 3 && restaurant.GetMinPrice() <= 5 || 
-               szPriceFilter.equals("$5+") && restaurant.GetMaxPrice() >= 5;
+        return (szPriceFilter.equals("Under $3") && restaurant.GetMinPrice() < 3) ||
+               (szPriceFilter.equals("$3 – $5") && restaurant.GetMinPrice() >= 3 && restaurant.GetMinPrice() <= 5) || 
+               (szPriceFilter.equals("$5+") && restaurant.GetMaxPrice() >= 5);
     }
 
 
