@@ -18,7 +18,7 @@ public class MainApp extends Application
     @Override
     public void start(Stage primaryStage) 
     {
-        primaryStage.setScene(new Scene(m_StartPage.m_StartPageRoot, 600, 400));
+        primaryStage.setScene(new Scene(m_StartPage.m_StartPageRoot, 600, 450));
         primaryStage.show();
     }
 }
